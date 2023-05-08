@@ -1,0 +1,41 @@
+server:
+  port: 1001
+  tomcat:
+    accept-count: 10
+    max-connections: 10
+    threads:
+      max: 200
+      min-spare: 10
+
+spring:
+  application:
+    name: pruebas
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      default-filters: 
+      - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials, RETAIN_UNIQUE
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowed-origins: "*"
+            allowed-methods: "*"
+            allowed-headers: "*"
+  datasource:
+    url: jdbc:postgresql://192.168.8.63:5432/siiss # BD Pruebas Postgres
+    username: postgres
+    password: Tcl39Prq
+    driver-class-name: org.postgresql.Driver
+    
+    hikari:
+      connection-timeout: 500
+  sql:
+    init:
+      continue-on-error: false
+  jackson:
+    default-property-inclusion: NON_NULL
+
+  
