@@ -25,9 +25,9 @@ spring:
             allowed-methods: "*"
             allowed-headers: "*"
   datasource:
-    url: jdbc:postgresql://127.0.0.1:5432/bd # BD Pruebas Postgres
-    username: user
-    password: user
+    url: jdbc:postgresql://192.168.8.63:5432/siiss # BD Pruebas Postgres
+    username: postgres
+    password: Tcl39Prq
     driver-class-name: org.postgresql.Driver
     
     hikari:
