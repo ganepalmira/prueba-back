@@ -10,28 +10,17 @@ server:
 spring:
   application:
     name: pruebas
-  cloud:
-    gateway:
-      discovery:
-        locator:
-          enabled: true
-          lower-case-service-id: true
-      default-filters: 
-      - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials, RETAIN_UNIQUE
-      globalcors:
-        cors-configurations:
-          '[/**]':
-            allowed-origins: "*"
-            allowed-methods: "*"
-            allowed-headers: "*"
   datasource:
-    url: jdbc:postgresql://192.168.8.63:5432/siiss # BD Pruebas Postgres
-    username: postgres
-    password: Tcl39Prq
+    url: jdbc:postgresql://ep-lively-snowflake-a4ka8wiz-pooler.us-east-1.aws.neon.tech/inventarioAF?sslmode=require
+    username: inventarioAF_owner
+    password: npg_V0iseS8AKGHl
     driver-class-name: org.postgresql.Driver
     
     hikari:
-      connection-timeout: 500
+      connection-timeout: 500 
+      max-lifetime: 300000 
+      idle-timeout: 60000 
+      maximum-pool-size: 10 
   sql:
     init:
       continue-on-error: false
