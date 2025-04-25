@@ -12,7 +12,7 @@ public class Ubicacion {
     @Column(name = "cod_ubicacion")
     private Long codUbicacion; 
 
-    @Column(name = "descripción")
+    @Column(name = "descripcion")
     private String descripcion;
 
 }
