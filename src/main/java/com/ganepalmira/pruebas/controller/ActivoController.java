@@ -27,7 +27,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = "*")
 @RequestMapping("/api/v1/activos")
 @Slf4j
 public class ActivoController {
