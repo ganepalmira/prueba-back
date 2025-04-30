@@ -23,6 +23,8 @@ import com.ganepalmira.pruebas.repository.MarcaRepository;
 import com.ganepalmira.pruebas.repository.UbicacionRepository;
 import com.ganepalmira.pruebas.service.ActivoService;
 import org.springframework.web.bind.annotation.PathVariable;
+import java.util.HashMap;
+import java.util.Map;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -72,7 +74,7 @@ public class ActivoController {
 
     @DeleteMapping("/delete/{codigo}")
     @Transactional
-    public ResponseEntity<String> delete(@PathVariable Long codigo) {
+    public ResponseEntity<Map<String, String>> delete(@PathVariable Long codigo) {
         Activo activo = activoRepository.findById(codigo)
         .orElseThrow(() -> new RuntimeException("Activo no encontrado con código: " + codigo));
 
@@ -81,7 +83,9 @@ public class ActivoController {
         }
 
         activoRepository.delete(activo); 
-        return ResponseEntity.ok("Activo eliminado correctamente");
+        Map<String, String> response = new HashMap<>();
+        response.put("message", "Activo eliminado correctamente");
+        return ResponseEntity.ok(response);
     }
 
     @PutMapping("/update/{codigo}")
